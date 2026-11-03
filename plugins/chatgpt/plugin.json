@@ -5,6 +5,7 @@
   "description": "Search the web, read pages and documents as Markdown with source links, map and crawl sites, and watch pages for changes.",
   "author": {
     "name": "Brainfish",
+    "email": "support@brainfi.sh",
     "url": "https://webcrawl.app"
   },
   "homepage": "https://webcrawl.app",
