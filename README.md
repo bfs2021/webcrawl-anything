@@ -1,14 +1,20 @@
-# Webcrawl Anything
+<p align="center">
+  <a href="https://webcrawl.app"><img src="./docs/assets/logo.svg" alt="Webcrawl logo" width="96" height="96"></a>
+</p>
 
-**Give your AI agent the whole web. Free, local, no API key.**
+<h1 align="center">Webcrawl Anything</h1>
 
-Search, scrape, map, crawl and monitor any website, SPA, PDF, YouTube video, GitHub repo, ArXiv paper, product page or CVE, from Claude Code, Cursor, Codex or your terminal.
+<p align="center"><strong>Give your AI agent the whole web. Free, local, no API key.</strong></p>
 
-[![npm version](https://img.shields.io/npm/v/webcrawl?color=0a0a0a)](https://www.npmjs.com/package/webcrawl)
-[![MCP Server](https://img.shields.io/npm/v/@webcrawl/mcp?label=%40webcrawl%2Fmcp&color=2563eb)](https://www.npmjs.com/package/@webcrawl/mcp)
-[![npm downloads](https://img.shields.io/npm/dm/webcrawl?color=10b981)](https://www.npmjs.com/package/webcrawl)
-[![GitHub stars](https://img.shields.io/github/stars/brainfish-ai/webcrawl-anything?style=flat&color=f59e0b)](https://github.com/brainfish-ai/webcrawl-anything/stargazers)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+<p align="center">Search, scrape, map, crawl and monitor any website, SPA, PDF, YouTube video, GitHub repo, ArXiv paper, product page or CVE, from Claude Code, Cursor, Codex or your terminal.</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/webcrawl"><img src="https://img.shields.io/npm/v/webcrawl?color=0a0a0a" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/@webcrawl/mcp"><img src="https://img.shields.io/npm/v/@webcrawl/mcp?label=%40webcrawl%2Fmcp&color=2563eb" alt="MCP Server"></a>
+  <a href="https://www.npmjs.com/package/webcrawl"><img src="https://img.shields.io/npm/dm/webcrawl?color=10b981" alt="npm downloads"></a>
+  <a href="https://github.com/brainfish-ai/webcrawl-anything/stargazers"><img src="https://img.shields.io/github/stars/brainfish-ai/webcrawl-anything?style=flat&color=f59e0b" alt="GitHub stars"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+</p>
 
 <p align="center">
   <img src="./docs/assets/demo.svg" alt="webcrawl CLI finding a CVE, mapping the Stripe webhook docs and reading a GitHub repo in about a second each, locally with no API key" width="820">
