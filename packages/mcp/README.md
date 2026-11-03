@@ -2,7 +2,7 @@
 
 Model Context Protocol (MCP) server for **[Webcrawl Anything](https://github.com/brainfish-ai/webcrawl-anything)**.
 
-Gives Claude Code, Cursor, Codex, Windsurf, and Gemini CLI live access to web search, structured verticals (shopping, flights, hotels, real-estate, local business, CVEs), anti-bot page scraping, and PDF/Office parsing. It runs on your machine with no API key and no account.
+Gives Claude Code, Cursor, Codex, Windsurf, and Gemini CLI live access to web search, structured verticals (shopping, flights, hotels, real-estate, local business, CVEs), page reading for JavaScript-heavy sites, and PDF/Office parsing. It runs on your machine with no API key and no account.
 
 ## One-Command Agent Setup
 
@@ -52,6 +52,7 @@ Set `WEBCRAWL_MCP_SCHEMA_PROFILE=compact` (default when installed via `npx webcr
 - `web_crawl` — Crawl up to 25 pages starting from a URL.
 - `web_extract` — Extract structured JSON from a URL using a prompt or JSON Schema.
 - `web_rerank` — Rerank candidate documents by relevance to a query.
+- `web_monitor` — Watch a page, URL list or site on a schedule with trigger conditions and email/webhook alerts (cloud only).
 - `search_categories` — List all supported search categories, subcategories, and filters.
 
 ## License

@@ -10,7 +10,8 @@ Repo status checked 2026-11-03:
 | [hesreallyhim/awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) | 57k | active | Tooling / MCP | B |
 | [e2b-dev/awesome-ai-agents](https://github.com/e2b-dev/awesome-ai-agents) | 31k | active (last push Aug 2026) | Open-source → tools | B |
 | [lorien/awesome-web-scraping](https://github.com/lorien/awesome-web-scraping) | 8k | active | JavaScript / Node | C |
-| [modelcontextprotocol/registry](https://github.com/modelcontextprotocol/registry) | 7k | active | Official registry as `io.github.brainfish-ai/webcrawl`. Automated: the release workflow publishes `server.json` after npm. First listing ships with the next release (needs `mcpName` in the npm package). | — |
+| [modelcontextprotocol/registry](https://github.com/modelcontextprotocol/registry) | 7k | active | Official registry as `io.github.brainfish-ai/webcrawl`. **Live since 1.3.9.** The release workflow republishes `server.json` after each npm publish. | — |
+| [ChatGPT / Codex plugin directory](https://platform.openai.com/plugins) | — | package ready | Hosted `webcrawl.app/mcp` with OAuth. Build the ZIP with `npm run package:chatgpt` (see `plugins/chatgpt/`), upload, connect, submit. | — |
 | appcypher/awesome-mcp-servers | 6k | **archived, skip** | — | — |
 
 Also submit through the web forms on Smithery, Glama, mcp.so and PulseMCP (listing pages read from the npm package and repo).

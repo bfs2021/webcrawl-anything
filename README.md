@@ -158,14 +158,14 @@ Once `npx webcrawl setup` has registered the MCP server and skill, ask Claude Co
 
 ### Local Engine vs. [`webcrawl.app`](https://webcrawl.app) Cloud
 
-Webcrawl Anything uses the **exact same TypeScript engine (`src/`)** locally and in the hosted [`webcrawl.app`](https://webcrawl.app) cloud API. You can start with zero keys locally and upgrade to cloud with one command whenever you need managed stealth browsers or sub-50ms global cache hits:
+Webcrawl Anything uses the **exact same TypeScript engine (`src/`)** locally and in the hosted [`webcrawl.app`](https://webcrawl.app) cloud API. You can start with zero keys locally and upgrade to cloud with one command whenever you need managed browsers or sub-50ms global cache hits:
 
 | Capability | Open-Source Local (`--mode local`) | [`webcrawl.app`](https://webcrawl.app) Cloud (`--mode cloud`) |
 |---|---|---|
 | **API Key Required** | **None (Zero-Key)** | `WEBCRAWL_API_KEY` (`npx webcrawl login`) |
 | **Core Engine & Target Plugins** | 100% shared (`src/engine`, `src/targets`, `src/extract`) | 100% shared |
 | **PDF, Office, YouTube & CVE Parsers** | Built-in local execution | Hosted + background async workers (`/v1/runs/:id`) |
-| **Anti-Bot & Cloudflare Bypass** | Local `impit` TLS + local Chrome | Managed residential stealth browser fleet + Cloudflare rendering |
+| **JavaScript-heavy pages** | Local `impit` TLS + local Chrome | Managed browser fleet + Cloudflare rendering |
 | **Search Fan-Out** | Built-in DuckDuckGo/Bing + BYO keys | Managed multi-provider fan-out (Serper, Brave, Jina, Tavily) |
 | **Global Content Cache** | Local in-memory LRU | Sub-50ms global SHA-256 content-addressed cache |
 
