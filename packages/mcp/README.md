@@ -1,8 +1,8 @@
 # @webcrawl/mcp
 
-Model Context Protocol (MCP) server for **[Webcrawl Anything](https://github.com/brainfish-ai/webcrawl-anything)** and **[webcrawl.app](https://webcrawl.app)**.
+Model Context Protocol (MCP) server for **[Webcrawl Anything](https://github.com/brainfish-ai/webcrawl-anything)**.
 
-Gives Claude Code, Cursor, Codex, Windsurf, and Gemini CLI live access to web search, structured verticals (shopping, flights, hotels, real-estate, local business, CVEs), anti-bot page scraping, PDF/Office OCR, and YouTube transcripts.
+Gives Claude Code, Cursor, Codex, Windsurf, and Gemini CLI live access to web search, structured verticals (shopping, flights, hotels, real-estate, local business, CVEs), anti-bot page scraping, and PDF/Office parsing. It runs on your machine with no API key and no account.
 
 ## One-Command Agent Setup
 
@@ -23,8 +23,7 @@ Add to `.cursor/mcp.json`, `~/.claude.json`, or your MCP client config:
       "command": "npx",
       "args": ["-y", "@webcrawl/mcp@latest"],
       "env": {
-        "WEBCRAWL_MCP_SCHEMA_PROFILE": "compact",
-        "WEBCRAWL_API_KEY": "wc_live_..."
+        "WEBCRAWL_MCP_SCHEMA_PROFILE": "compact"
       }
     }
   }
