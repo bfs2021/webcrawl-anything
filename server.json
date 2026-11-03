@@ -1,0 +1,51 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.brainfish-ai/webcrawl",
+  "title": "Webcrawl Anything",
+  "description": "Scrape, map, crawl, search and monitor the web. Runs locally with no API key, cites every source.",
+  "repository": {
+    "url": "https://github.com/brainfish-ai/webcrawl-anything",
+    "source": "github",
+    "subfolder": "packages/mcp"
+  },
+  "websiteUrl": "https://webcrawl.app",
+  "version": "1.3.8",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@webcrawl/mcp",
+      "version": "1.3.8",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "WEBCRAWL_API_KEY",
+          "description": "Optional webcrawl.app API key. Leave unset to run the zero-key local engine.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "WEBCRAWL_MODE",
+          "description": "local, cloud or auto. Defaults to auto (cloud when an API key is set, otherwise local).",
+          "isRequired": false,
+          "format": "string"
+        },
+        {
+          "name": "WEBCRAWL_MCP_SCHEMA_PROFILE",
+          "description": "Set to compact for smaller tool schemas in context-limited clients.",
+          "isRequired": false,
+          "format": "string"
+        }
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://webcrawl.app/mcp"
+    }
+  ]
+}

@@ -58,6 +58,14 @@ for (const file of files) {
   }
   fs.writeFileSync(file, JSON.stringify(pkg, null, 2) + "\n");
 }
+
+// Keep the MCP Registry metadata on the same version as the npm package it points at.
+const server = JSON.parse(fs.readFileSync("server.json", "utf8"));
+server.version = next;
+for (const p of server.packages ?? []) {
+  if (p.identifier === "@webcrawl/mcp") p.version = next;
+}
+fs.writeFileSync("server.json", JSON.stringify(server, null, 2) + "\n");
 process.stdout.write(next);
 ' "$BUMP")
 
@@ -66,8 +74,8 @@ echo "→ Prepared release v${NEW_VERSION}"
 npm run build:packages
 npm run test:packages
 
-if ! git diff --quiet package.json packages/client/package.json packages/mcp/package.json packages/cli/package.json; then
-  git add package.json packages/client/package.json packages/mcp/package.json packages/cli/package.json packages/curl-impersonate/package.json
+if ! git diff --quiet package.json packages/client/package.json packages/mcp/package.json packages/cli/package.json server.json; then
+  git add package.json packages/client/package.json packages/mcp/package.json packages/cli/package.json packages/curl-impersonate/package.json server.json
   git commit -m "chore(release): v${NEW_VERSION}"
 fi
 
