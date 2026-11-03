@@ -1,8 +1,8 @@
 # @webcrawl/mcp
 
-Model Context Protocol (MCP) server for **[Webcrawl Anything](https://github.com/brainfish-ai/webcrawl-anything)** and **[webcrawl.app](https://webcrawl.app)**.
+Model Context Protocol (MCP) server for **[Webcrawl Anything](https://github.com/brainfish-ai/webcrawl-anything)**.
 
-Gives Claude Code, Cursor, Codex, Windsurf, and Gemini CLI live access to web search, structured verticals (shopping, flights, hotels, real-estate, local business, CVEs), anti-bot page scraping, PDF/Office OCR, and YouTube transcripts.
+Gives Claude Code, Cursor, Codex, Windsurf, and Gemini CLI live access to web search, structured verticals (shopping, flights, hotels, real-estate, local business, CVEs), anti-bot page scraping, and PDF/Office parsing. It runs on your machine with no API key and no account.
 
 ## One-Command Agent Setup
 
@@ -23,13 +23,21 @@ Add to `.cursor/mcp.json`, `~/.claude.json`, or your MCP client config:
       "command": "npx",
       "args": ["-y", "@webcrawl/mcp@latest"],
       "env": {
-        "WEBCRAWL_MCP_SCHEMA_PROFILE": "compact",
-        "WEBCRAWL_API_KEY": "wc_live_..."
+        "WEBCRAWL_MCP_SCHEMA_PROFILE": "compact"
       }
     }
   }
 }
 ```
+
+### Optional: webcrawl.app cloud
+
+Local mode is the default and needs nothing else. To run the same tools on the hosted service, either:
+
+- add `"WEBCRAWL_API_KEY": "wc_live_..."` to `env` above (get a key at [webcrawl.app](https://webcrawl.app)), or
+- connect your client to the hosted endpoint `https://webcrawl.app/mcp` and sign in in the browser. No local install is needed.
+
+`WEBCRAWL_MODE` can be `local`, `cloud` or `auto` (default: local unless a key is set).
 
 ### Compact Schema Profile
 
