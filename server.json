@@ -21,12 +21,31 @@
       },
       "environmentVariables": [
         {
+          "name": "WEBCRAWL_API_KEY",
+          "description": "Optional. Leave unset to run fully local. Set a webcrawl.app key to use the hosted cloud.",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "WEBCRAWL_MODE",
+          "description": "Optional: local, cloud or auto. Default auto runs local unless an API key is set.",
+          "isRequired": false,
+          "format": "string"
+        },
+        {
           "name": "WEBCRAWL_MCP_SCHEMA_PROFILE",
           "description": "Set to compact for smaller tool schemas in context-limited clients.",
           "isRequired": false,
           "format": "string"
         }
       ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://webcrawl.app/mcp"
     }
   ]
 }

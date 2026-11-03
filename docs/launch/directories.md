@@ -18,10 +18,10 @@ Also submit through the web forms on Smithery, Glama, mcp.so and PulseMCP (listi
 ## Entry A (MCP lists)
 
 ```markdown
-- [brainfish-ai/webcrawl-anything](https://github.com/brainfish-ai/webcrawl-anything) 📇 🏠 - Scrape, map, crawl, search (incl. CVEs via NVD/OSV) and monitor the web. Runs locally with no API key; every result carries source URL, fetch tier and content hash.
+- [brainfish-ai/webcrawl-anything](https://github.com/brainfish-ai/webcrawl-anything) 📇 🏠 ☁️ - Scrape, map, crawl, search (incl. CVEs via NVD/OSV) and monitor the web. Runs locally with no API key; every result carries source URL, fetch tier and content hash.
 ```
 
-(📇 = TypeScript, 🏠 = local. Match the list's legend.)
+(📇 = TypeScript, 🏠 = local, ☁️ = optional cloud. Match the list's legend.)
 
 ## Entry B (agent and Claude Code lists)
 
