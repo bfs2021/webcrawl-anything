@@ -38,6 +38,16 @@ for (const k of ["websiteURL", "supportURL", "privacyPolicyURL", "termsOfService
 }
 if (!Array.isArray(ui.defaultPrompt) || ui.defaultPrompt.length < 1) fail("plugin.json: add at least one defaultPrompt");
 
+// Portal limits: name and subtitle are at most 30 characters.
+for (const k of ["displayName", "shortDescription"]) {
+  const len = [...String(ui[k] ?? "")].length;
+  if (len > 30) fail(`plugin.json: interface.${k} is ${len} characters; the portal allows at most 30`);
+}
+// Category must be a title from the portal's dropdown. Only these are confirmed
+// accepted (the portal rejected "Research"); add others once seen in the dashboard.
+const CATEGORIES = ["Developer Tools", "Productivity"];
+if (ui.category && !CATEGORIES.includes(ui.category)) fail(`plugin.json: interface.category "${ui.category}" is not a known portal category (${CATEGORIES.join(", ")})`);
+
 // Directory copy rules: no "MCP"/"Plugin" suffix, no pricing or promotions.
 if (/\b(mcp|plugin)\b/i.test(ui.displayName ?? "")) fail("plugin.json: displayName must not include MCP/Plugin");
 const copy = [ui.shortDescription, ui.longDescription, plugin.description, ...(ui.defaultPrompt ?? [])].join(" ");
