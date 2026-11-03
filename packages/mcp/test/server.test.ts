@@ -44,6 +44,21 @@ describe("webcrawl MCP server", () => {
     assert.match(client.getInstructions() ?? "", /web_search/);
   });
 
+  // ChatGPT/Codex plugin review requires all three hints as explicit booleans on every tool.
+  it("declares explicit readOnly/destructive/openWorld hints on every tool", async () => {
+    const { client } = await connect(() => ({ json: {} }));
+    const { tools } = await client.listTools();
+    for (const t of tools) {
+      for (const hint of ["readOnlyHint", "destructiveHint", "openWorldHint"] as const) {
+        assert.equal(typeof t.annotations?.[hint], "boolean", `${t.name} is missing ${hint}`);
+      }
+      if (t.annotations?.readOnlyHint) assert.equal(t.annotations.destructiveHint, false, `${t.name}: read-only tools are not destructive`);
+    }
+    const byName = Object.fromEntries(tools.map((t) => [t.name, t.annotations]));
+    assert.equal(byName.web_parse?.readOnlyHint, false, "web_parse can queue a background job");
+    assert.equal(byName.web_monitor?.destructiveHint, true, "web_monitor can delete monitors");
+  });
+
   it("web_search formats structured hotels and passes arguments through", async () => {
     const { client, calls } = await connect(() => ({
       json: { hotels: [{ name: "Hotel A", priceText: "$120/night", provider: "booking.com", url: "https://b.com/a" }], credits: { charged: 2, remaining: 98 } },
