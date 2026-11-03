@@ -26,7 +26,6 @@ import { isRenderProviderEnabled, renderViaProvider } from "./engine/render.js";
 import { fetchResource, lastFetchTier, needsBrowserEscalation } from "./engine/fetcher.js";
 import { parseFile, publicParseMeta } from "./parse/index.js";
 import { fetchAndParse, isBinaryContentType, looksLikeBinaryUrl } from "./parse/fetch.js";
-import { responseLooksLikeDocument } from "./parse/detect.js";
 import { maxDownloadBytes } from "./parse/limits.js";
 import { parseYouTubeCached, youtubeVideoId } from "./parse/youtube.js";
 import { rankDocuments, type RawCandidateDocument } from "./ranker.js";
@@ -267,7 +266,10 @@ export function createLocalEngineClient(): LocalEngineBackend {
       //    declares a document type or the decoded head still carries the
       //    %PDF- signature, re-fetch binary-safe and take the documents
       //    pipeline instead of mangling the bytes as HTML.
-      if (responseLooksLikeDocument(fetched.headers["content-type"], fetched.html.slice(0, 16))) {
+      if (
+        isBinaryContentType(fetched.headers["content-type"]) ||
+        fetched.html.slice(0, 16).startsWith("%PDF-")
+      ) {
         const doc = await fetchAndParse(targetUrl, { bypassCache: p.noCache });
         if (doc) {
           const docUrl = doc.resource.url || targetUrl;

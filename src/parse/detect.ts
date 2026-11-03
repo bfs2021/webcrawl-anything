@@ -156,25 +156,9 @@ export function detectFileKind({ bytes, contentType, fileName }: DetectInput): D
     return { kind: byExt, mime: KIND_DEFAULT_MIME[byExt] || (media ? `${byExt}/${sub}` : declared || "text/plain") };
   }
 
-
   if (bytes) {
     const head = ascii(bytes, 0, 512).toLowerCase();
     if (/<!doctype html|<html[\s>]|<head[\s>]|<body[\s>]/.test(head)) return { kind: "html", mime: "text/html" };
   }
   return { kind: "text", mime: declared || "text/plain" };
-}
-
-/**
- * Does an HTML-tier response actually carry a binary document? Extension-less
- * document URLs (`arxiv.org/pdf/<id>`) serve `application/pdf` or raw `%PDF-`
- * bytes, so the URL shape cannot decide — check the declared type, then the
- * decoded body head.
- */
-export function responseLooksLikeDocument(contentType: string | undefined, bodyHead: string): boolean {
-  const declared = (contentType || "").split(";")[0].trim().toLowerCase();
-  if (declared) {
-    const { kind } = detectFileKind({ contentType: declared });
-    if (BINARY_KINDS.has(kind) || declared === "application/octet-stream") return true;
-  }
-  return bodyHead.startsWith("%PDF-");
 }
